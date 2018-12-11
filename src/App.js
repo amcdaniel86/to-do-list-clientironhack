@@ -3,9 +3,49 @@ import './App.css';
 ipmort Axios from 'axios';
 import ProjectIndex from './Components/ProjectIndex';
 import { Route, Switch, Link } from 'react-router-dom';
-
+import Signup from '/.Components/Signup';
 
 class ProjectIndex extends Component {
+
+
+    state = {
+      loggedinUser: null
+    }
+
+    service = new UserService()
+
+
+
+    compoenntDidMount(){
+        this.fetchUser()
+
+
+
+    }
+
+    logInTheUser = (userToLogin) =>{
+
+        this.setState({logInTheUser: userToLogin})
+
+    }
+
+
+      showUser = () =>{
+        if(this.state.loggedInUser){
+          return(
+            <div>Welcome, {this.state.loggedInUser.username}</div>
+          )
+        }
+      }
+
+
+        logout = () =>{
+            this.service.logout();
+            
+        }
+
+
+
 
       render(){
           return(
@@ -31,6 +71,10 @@ class ProjectIndex extends Component {
                   {/*                                                       | */}
                   {/* in the SingleProject Component, we will have access to whatever is inside the url, insde this.props.match.params.id */}
 {/* // future component path routes go here */}
+                  // <Route path="/signup" component="Signup" />
+                    <Router path="/signup" render = {(props)=> <Signup {...props} logTheUserIntoAppComponent = {this.logInTheUser} }  />
+                  // should set the state in the app component to keep user consistent.
+
 
 
               </Switch>
@@ -57,3 +101,5 @@ class ProjectIndex extends Component {
 
 
 export default ProjectIndex;
+
+// 100% certain that all components have user information in same class, so its never changed amongst different components.
