@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-ipmort Axios from 'axios';
+import Axios from 'axios';
 import ProjectIndex from './Components/ProjectIndex';
 import AuthService from './auth-service';
 import { Link } from 'react-router-dom'
@@ -9,8 +9,8 @@ import { Link } from 'react-router-dom'
 class Signup extends Component {
   
 
-    state = { username: '', password: '' };
-    this.service = new UserService();
+    state = { usernameInput: '', passwordInput: '' };
+    service = new UserService();
     // new UserService because UserService is a class. so it makes a new instance of UserService.
   }
 
@@ -35,8 +35,8 @@ componentDidMount(){
 
     handleFormSubmit = (e) =>{
       e.preventDefault();
-      // you could do axios.post('http://localhost:5000/api/signup, {username: this.state.usernameInput}, 
-      // ADD FROM NICK'S NOTES ON GITHUB
+      // you could do Axios.post('http://localhost:5000/api/signup, {username: this.state.usernameInput, password: this.state.passwordInput}, {withCredentials: true}) 
+      
       this.service.signup(this.state.usernameInput, this.state.passwordInput)
       .then((userFromDB)=>{
         console.log('=-=--==-=-=-=-=', userFromDB.data)
@@ -81,6 +81,6 @@ componentDidMount(){
       // more code will be added here
     )
   }
-}
+
 
 export default Signup;

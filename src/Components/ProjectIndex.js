@@ -14,9 +14,9 @@ class ProjectIndex extends Component {
     // empty array is preferred.
 
 
-    // remember the first time the render function runs, the state will look exactly like we set it up in the constructor above.
-    // since we're are doing this.state.allTheProjects.map, == an empty array in teh beginnning is good because first time the component renders, the state will  have an empty array, and will loop through.
-    // you will not see it beacuse it happens quickly.
+    // remember: first time the render function runs, the state will look exactly like it is set it up in the constructor above.
+    // since we are doing this.state.allTheProjects.map, == an empty array in the beginnning is good because first time the component renders, the state will  have an empty array, and will loop through it.
+    // you will not see it though beacuse it happens quickly.
     // but if we don't start with equalling our this.state.allTheProjects to an empty array, it will throw an error, because we are trying to do .map on NULL which is not allowed or possible.
 
 
@@ -38,13 +38,11 @@ Axios.get('http://localhost:5000/api/tasks')
 
 // anytime it says .map .filter forEach is not a function, then its saying is not an array is being targeted, probably missing something like .data.
 
-  this.setState({allTheProjects: responseFromApi.data.reverse()}), ()=>{
+  this.setState({allTheProjects: responseFromApi.data.reverse()})
     // .reverse sorts in reverse order
     // console.log('-=-=-=-=-=-') test
     // once we get all the tasks, we set the state so the state will have all the tasks in the state.
   })
-
-})
 .catch((err)=>{
   
 })
@@ -61,7 +59,7 @@ componentWillReceiveProps(){
 
       showAllProjects = () =>{
         // once we have all the tasks in the state, we can map through them as we normally would.
-            if(this.state.allTheProjects)
+            if(this.state.allTheProjects && this.props.currentUser)
             // above is not necessary in a functional component, because there is no state in functional components.
         return this.state.allTheProjects.map((eachProject)=>{
           return(

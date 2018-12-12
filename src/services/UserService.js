@@ -16,8 +16,9 @@ class UserService {
     this.service = service;
   }
 
-// axios.create allows you to  preconfigure the url (and headers) of axios requests.
-// so that when we make an axios request with that object, we pass in a url, and that url gets added onto the end of the url we created the axios object with.
+// Axios.create allows you to preconfigure the url, and headers, of any axios requests.
+// what happens is when we make an axios request with that object, we pass in a url from the api, and that back end api url gets added onto the end of the baseURL (localhost5000) we created the axios object with.
+// Axios.create assumes that 'http: will be the beginning of every axios request we make.
 
 
 
