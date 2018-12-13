@@ -76,6 +76,7 @@ componentWillReceiveProps(){
 
           )
         })
+        }
       }
 
 
@@ -87,7 +88,7 @@ componentWillReceiveProps(){
           return(
               <div>
 
-// now we got to show all the projects on our page, this happens in the render function.
+{/* // now we got to show all the projects on our page, this happens in the render function. */}
               <h1>Project Index</h1>
 
               <div className="list-of-projects-container">

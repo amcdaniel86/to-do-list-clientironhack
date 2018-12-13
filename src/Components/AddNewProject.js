@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-ipmort Axios from 'axios';
+import Axios from 'axios';
 import ProjectIndex from './Components/ProjectIndex';
 import { Link } from 'react-router-dom';
 
@@ -30,11 +30,11 @@ class AddNewProject extends Component {
         // above prevents refreshing from happening
 // step 1 grab from the state
           const newTitle = this.state.titleInput;
-          const newDesription = this.state.descriptionInput;
+          const newDescription = this.state.descriptionInput;
           // grab values from the DOM
 
-          Axios.post("http://localhose:5000/api/tasks/new", {theTitle: newTitle, theDescription: newDescription})
-// 2nd argument MUST be an object.
+          Axios.post("http://localhost:5000/api/tasks/new", {theTitle: newTitle, theDescription: newDescription })
+        // 2nd argument MUST be an object.
             .then((responseFromOurApi)=>{
               // newly created task from the api post add new route.
                 console.log('success', responseFromOurApi)

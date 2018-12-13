@@ -9,7 +9,7 @@ class SingleProject extends Component {
 
     state={
         titleInput: '',
-        descInput: ''
+        descInput: '',
         editing: false
 
     }
@@ -29,15 +29,10 @@ class SingleProject extends Component {
               
               })
               
-              
-              
           })
           .catch(()=>{
 
-
           })
-
-
     }
 
       updateInput = (e) => {
@@ -87,7 +82,7 @@ class SingleProject extends Component {
                 // with forms, YOU ALWAYS need a state at the top of the component to track the form.
               )
             } else {
-                // be default this.state.editing is set to false so when page first loaded, we'll see the return area vvvv below. just the info, NOT the form
+                // by default this.state.editing is set to false so when page first loaded, we'll see the return area vvvv below. just the info, NOT the form
 
 
               return(
@@ -95,6 +90,7 @@ class SingleProject extends Component {
                           <span>
                             {this.state.titleInput}
                           </span>
+                          
                           <span>
                             {this.state.descInput}
                           </span>
@@ -108,7 +104,7 @@ class SingleProject extends Component {
 
 
         }
-
+      }
 
 
         deleteProject = () =>{
